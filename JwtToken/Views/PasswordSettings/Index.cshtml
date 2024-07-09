@@ -1,0 +1,35 @@
+﻿@model PasswordSettingsViewModel
+
+<h2>Password Settings</h2>
+
+<form asp-action="Index" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="RequireDigit"></label>
+        <input asp-for="RequireDigit" class="form-check-input" />
+        <span asp-validation-for="RequireDigit" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RequiredLength"></label>
+        <input asp-for="RequiredLength" class="form-control" />
+        <span asp-validation-for="RequiredLength" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RequireNonAlphanumeric"></label>
+        <input asp-for="RequireNonAlphanumeric" class="form-check-input" />
+        <span asp-validation-for="RequireNonAlphanumeric" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RequireUppercase"></label>
+        <input asp-for="RequireUppercase" class="form-check-input" />
+        <span asp-validation-for="RequireUppercase" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RequireLowercase"></label>
+        <input asp-for="RequireLowercase" class="form-check-input" />
+        <span asp-validation-for="RequireLowercase" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Settings</button>
+</form>

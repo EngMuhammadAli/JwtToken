@@ -1,0 +1,28 @@
+﻿@model JwtToken.Models.UserRoleViewModel
+
+@{
+    ViewData["Title"] = "Assign Roles";
+}
+
+<h2>Assign Roles to @Model.Username</h2>
+
+<form asp-action="Assign" method="post">
+    <input type="hidden" name="UserId" value="@Model.UserId" />
+    <div class="form-group">
+        @if (Model.Roles != null)
+        {
+            @foreach (var role in Model.Roles)
+            {
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="SelectedRoles" value="@role.RoleName" @(Model.SelectedRoles.Contains(role.RoleName) ? "checked" : "") />
+                    <label class="form-check-label">@role.RoleName</label>
+                </div>
+            }
+        }
+        else
+        {
+            <p>No roles found.</p>
+        }
+    </div>
+    <button type="submit" class="btn btn-primary">Assign Roles</button>
+</form>
